@@ -1,7 +1,23 @@
-import '../styles/globals.css'
+import {
+  theme,
+  ThemeProvider,
+  CSSReset,
+  ColorModeScript,
+} from "@chakra-ui/react";
+import "../normalize.css";
+// import theme from "./theme";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider
+      theme={theme}
+      // initialColorMode={theme.config.initialColorMode}
+    >
+      <CSSReset />
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
