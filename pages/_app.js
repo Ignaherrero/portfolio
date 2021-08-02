@@ -8,12 +8,8 @@ import "../normalize.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider
-      theme={theme}
-      initialColorMode={theme.config.initialColorMode}
-    >
+    <ThemeProvider theme={theme}>
       <CSSReset />
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Component {...pageProps} />
     </ThemeProvider>
   );
