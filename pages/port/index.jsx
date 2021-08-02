@@ -56,6 +56,7 @@ const Index = () => {
                   src="https://avatars.githubusercontent.com/u/44342115?v=4"
                   borderRadius="full"
                   boxSize="50px"
+                  alt="profile-img"
                 />
               </MenuItem>
               {/* <MenuItem width="auto">Sobre mi</MenuItem>
@@ -68,7 +69,10 @@ const Index = () => {
                   isExternal
                   colorScheme="purple"
                 >
-                  <Image src="https://icongr.am/devicon/github-original.svg?size=30&color=d605a9"></Image>
+                  <Image
+                    src="https://icongr.am/devicon/github-original.svg?size=30&color=d605a9"
+                    alt="icon-github"
+                  ></Image>
                 </Link>
               </MenuItem>
               {/* <MenuItem width="auto" onClick={toggleColorMode}>
@@ -104,6 +108,7 @@ const Index = () => {
                   src="https://avatars.githubusercontent.com/u/44342115?v=4"
                   borderRadius="full"
                   boxSize="80px"
+                  alt="profile-img"
                 />
               </Box>
             </motion.div>
@@ -281,12 +286,18 @@ const Index = () => {
                     href="https://www.linkedin.com/in/ignacioah/"
                     isExternal
                   >
-                    <Image src="https://icongr.am/devicon/linkedin-plain.svg?size=35&color=000000" />
+                    <Image
+                      src="https://icongr.am/devicon/linkedin-plain.svg?size=35&color=000000"
+                      alt="icon-linkedin"
+                    />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="https://github.com/Ignaherrero" isExternal>
-                    <Image src="https://icongr.am/devicon/github-original.svg?size=35&color=d605a9" />
+                    <Image
+                      src="https://icongr.am/devicon/github-original.svg?size=35&color=d605a9"
+                      alt="icon-github"
+                    />
                   </Link>
                 </ListItem>
               </HStack>
