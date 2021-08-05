@@ -95,28 +95,34 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <Flex>
+          <Flex flexDirection={{ base: "column", md: "row", sm: "column" }}>
             <motion.div
               initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 10 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <Box width="150px">
+              <Flex
+                width="150px"
+                height="100%"
+                justifyContent="center"
+                m="auto"
+              >
                 <Image
                   src="https://avatars.githubusercontent.com/u/44342115?v=4"
                   borderRadius="full"
                   boxSize="80px"
                   alt="profile-img"
+                  alignSelf="center"
                 />
-              </Box>
+              </Flex>
             </motion.div>
-            <Box>
+            <Box mt={{ base: 6 }}>
               <Text color="#2d3748" fontSize="2xl">
                 Hola!
               </Text>
-              <Text fontSize="2xl" color="#323c4c">
+              <Text fontSize={{ base: "xl", sm: "2xl" }} color="#323c4c">
                 Mi nombre es{" "}
                 <Text fontWeight="bold" display="inline">
                   Ignacio Herrero
