@@ -209,7 +209,7 @@ const Index = () => {
             >
               <Heading fontSize="lg">Todo</Heading>
               <Text color="#8b97a9">
-                Tecnologias: next, api whatsapp, netlify, localstorage
+                Tecnologias: react, styled-components, localstorage
               </Text>
               <HStack spacing="20px">
                 <Link href="https://github.com/Ignaherrero/todo" isExternal>
@@ -233,7 +233,8 @@ const Index = () => {
             >
               <Heading fontSize="lg">Journal</Heading>
               <Text color="#8b97a9">
-                Tecnologias: next, api whatsapp, netlify
+                Tecnologias: react, redux, google firebase, botstrap, jest,
+                enzyme
               </Text>
               <HStack spacing="20px">
                 <Link
@@ -262,7 +263,7 @@ const Index = () => {
             >
               <Heading fontSize="lg">Calendar</Heading>
               <Text color="#8b97a9">
-                Tecnologias: next, api whatsapp, netlify
+                Tecnologias: React, redux, react-router, bootstrap, localstorage
               </Text>
               <HStack spacing="20px">
                 <Link
