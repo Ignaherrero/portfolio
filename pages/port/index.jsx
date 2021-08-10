@@ -42,8 +42,6 @@ import { motion } from "framer-motion";
 */
 
 const Index = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
   return (
     <Box width="100%" bg="#f7fafc">
       <Box boxShadow="xl" rounded="md" bg="white" maxH="80px">
@@ -304,6 +302,14 @@ const Index = () => {
                     <Image
                       src="https://icongr.am/devicon/github-original.svg?size=35&color=d605a9"
                       alt="icon-github"
+                    />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="mailto:nachoherrero93@hotmail.com" isExternal>
+                    <Image
+                      src="https://icongr.am/clarity/envelope.svg?size=40&color=currentColor"
+                      alt="icon-email"
                     />
                   </Link>
                 </ListItem>
