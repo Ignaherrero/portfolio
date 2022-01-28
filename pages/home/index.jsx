@@ -26,20 +26,8 @@ import { Box } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 import { ReactComponent as SvgGitHub } from "../../assets/menu_black_24dp.svg";
 import { motion } from "framer-motion";
-/*
-      <Menu>
-        <MenuButton aria-label="Options" variant="outline" />
-        <MenuList>
-          <>Sobre mi</>
-          <>Contactame</>
-          <>Skills</>
-          <>Proyectos</>
-          <>Cursos</>
-          <>Actividades</>
-        </MenuList>
-      </Menu>
-
-*/
+import { ColorModeSwitcher } from "../../components/ColorModeSwitcher";
+import { proyects } from "../../assets/proyects";
 
 const Index = () => {
   return (
@@ -142,142 +130,29 @@ const Index = () => {
           </Heading>
 
           <VStack spacing={3} mt={5}>
-            <Box
-              boxShadow="base"
-              p="6"
-              rounded="md"
-              bg="white"
-              maxW="800px"
-              width="100%"
-              borderRadius="lg"
-              overflow="hidden"
-            >
-              <Heading fontSize="lg">Ecommerce</Heading>
-              <Text color="#8b97a9">
-                Tecnologias: next, api whatsapp, netlify, chakraui
-              </Text>
-              <HStack spacing="20px">
-                <Link
-                  href="https://github.com/Ignaherrero/ecommerce-next-apiWhatsapp"
-                  isExternal
-                >
-                  Code
-                </Link>
-                <Link
-                  href="https://ecommerce-next-api-whatsapp-google-sheet.vercel.app/main"
-                  isExternal
-                >
-                  Live
-                </Link>
-              </HStack>
-            </Box>
-            <Box
-              boxShadow="base"
-              p="6"
-              rounded="md"
-              bg="white"
-              maxW="800px"
-              borderRadius="lg"
-              overflow="hidden"
-              width="100%"
-            >
-              <Heading fontSize="lg">Adogtemos</Heading>
-              <Text color="#8b97a9">
-                Tecnologias: typescript, react, styled-components, react router,
-                netlify, husky, eslint
-              </Text>
-              <HStack spacing="20px">
-                <Link href="https://github.com/GammaFec" isExternal>
-                  Code
-                </Link>
-                <Link href="https://develop--adogtemos.netlify.app/" isExternal>
-                  Live
-                </Link>
-              </HStack>
-            </Box>
-            <Box
-              boxShadow="base"
-              p="6"
-              rounded="md"
-              bg="white"
-              maxW="800px"
-              borderRadius="lg"
-              overflow="hidden"
-              width="100%"
-            >
-              <Heading fontSize="lg">Todo</Heading>
-              <Text color="#8b97a9">
-                Tecnologias: react, styled-components, localstorage
-              </Text>
-              <HStack spacing="20px">
-                <Link href="https://github.com/Ignaherrero/todo" isExternal>
-                  Code
-                </Link>
-                <Link href="https://nacho93-todo.netlify.app/" isExternal>
-                  Live
-                </Link>
-              </HStack>
-            </Box>
-
-            <Box
-              boxShadow="base"
-              p="6"
-              rounded="md"
-              bg="white"
-              maxW="800px"
-              borderRadius="lg"
-              overflow="hidden"
-              width="100%"
-            >
-              <Heading fontSize="lg">Journal</Heading>
-              <Text color="#8b97a9">
-                Tecnologias: react, redux, google firebase, botstrap, jest,
-                enzyme
-              </Text>
-              <HStack spacing="20px">
-                <Link
-                  href="https://github.com/Frontend-Cafe/dev-tools-react"
-                  isExternal
-                >
-                  Code
-                </Link>
-                <Link
-                  href="https://autenticacion-firebase-firestone-redux-tests.vercel.app/auth/login"
-                  isExternal
-                >
-                  Live
-                </Link>
-              </HStack>
-            </Box>
-            <Box
-              boxShadow="base"
-              p="6"
-              rounded="md"
-              bg="white"
-              maxW="800px"
-              borderRadius="lg"
-              overflow="hidden"
-              width="100%"
-            >
-              <Heading fontSize="lg">Calendar</Heading>
-              <Text color="#8b97a9">
-                Tecnologias: React, redux, react-router, bootstrap, localstorage
-              </Text>
-              <HStack spacing="20px">
-                <Link
-                  href="https://github.com/Ignaherrero/calendar-react-redux-localStorage-bootstrap-fontAwsome"
-                  isExternal
-                >
-                  Code
-                </Link>
-                <Link
-                  href="https://calendar-react-redux-local-storage-bootstrap-font-awsome.vercel.app/"
-                  isExternal
-                >
-                  Live
-                </Link>
-              </HStack>
-            </Box>
+            {proyects.map((proyect) => (
+              <Box
+                boxShadow="base"
+                p="6"
+                rounded="md"
+                bg="white"
+                maxW="800px"
+                width="100%"
+                borderRadius="lg"
+                overflow="hidden"
+              >
+                <Heading fontSize="lg">{proyect.name}</Heading>
+                <Text color="#8b97a9">Tecnologias: ...</Text>
+                <HStack spacing="20px">
+                  <Link href={proyect.liveUrl} isExternal>
+                    Live
+                  </Link>
+                  <Link href={proyect.codeUrl} isExternal>
+                    Code
+                  </Link>
+                </HStack>
+              </Box>
+            ))}
           </VStack>
         </motion.div>
       </Container>

@@ -1,17 +1,19 @@
 import {
-  theme,
+  extendTheme,
   ThemeProvider,
   CSSReset,
   ColorModeScript,
+  ChakraProvider,
+  ColorModeProvider,
+  theme,
 } from "@chakra-ui/react";
 import "../normalize.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CSSReset />
+    <ChakraProvider>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ChakraProvider>
   );
 }
 
