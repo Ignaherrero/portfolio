@@ -28,6 +28,7 @@ import { ReactComponent as SvgGitHub } from "../../assets/menu_black_24dp.svg";
 import { motion } from "framer-motion";
 import { ColorModeSwitcher } from "../../components/ColorModeSwitcher";
 import { proyects } from "../../assets/proyects";
+import { nanoid } from "nanoid";
 
 const Index = () => {
   return (
@@ -140,6 +141,7 @@ const Index = () => {
                 width="100%"
                 borderRadius="lg"
                 overflow="hidden"
+                key={nanoid()}
               >
                 <Heading fontSize="lg">{proyect.name}</Heading>
                 <Text color="#8b97a9">Tecnologias: ...</Text>
