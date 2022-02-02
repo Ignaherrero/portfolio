@@ -8,37 +8,31 @@ import {
   theme,
 } from "@chakra-ui/react";
 import "../normalize.css";
-
-// function MyApp({ Component, pageProps }) {
-//   return (
-//     <ChakraProvider>
-//       <Component {...pageProps} />
-//     </ChakraProvider>
-//   );
-// }
-
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
-        page_path: url,
-      });
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <>
+      <Script
+        strategy="lazyOnload"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-MGM6C356VF"
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+                `}
+      </Script>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </>
   );
 }
 
