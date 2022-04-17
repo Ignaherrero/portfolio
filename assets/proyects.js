@@ -7,7 +7,7 @@ export const proyects = [
   {
     name: "Fotografias para tu pc",
     codeUrl: "https://github.com/Ignaherrero/search-image",
-    liveUrl: "https://search-image-nzwzzuliz-ignaherrero.vercel.app/",
+    liveUrl: "https://search-image-kohl.vercel.app/",
   },
   {
     name: "Buscador de articulos sobre nutrición",
@@ -24,6 +24,6 @@ export const proyects = [
     codeUrl:
       "https://github.com/Ignaherrero/autenticacion-firebase-firestone-redux-tests-bootstrap",
     liveUrl:
-      "https://autenticacion-firebase-firestone-redux-tests-jbh4d02ji.vercel.app/auth/login",
+      "https://autenticacion-firebase-firestone-redux-tests.vercel.app",
   },
 ];
