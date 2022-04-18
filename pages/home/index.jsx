@@ -1,42 +1,28 @@
 import React from "react";
 import {
-  Button,
-  Center,
   Container,
   Flex,
   HStack,
-  Icon,
   Image,
   Link,
   List,
   ListItem,
   Menu,
-  MenuButton,
   MenuItem,
-  MenuList,
-  Spacer,
   Text,
-  UnorderedList,
-  useColorMode,
-  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { Grid, GridItem } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
-import { ReactComponent as SvgGitHub } from "../../assets/menu_black_24dp.svg";
 import { motion } from "framer-motion";
-import { ColorModeSwitcher } from "../../components/ColorModeSwitcher";
-import { proyects } from "../../assets/proyects";
 import { nanoid } from "nanoid";
 
-const Index = () => {
+function Index({ data }) {
   return (
     <Box width="100%" bg="#f7fafc">
       <Box boxShadow="xl" rounded="md" bg="white" maxH="80px">
         <Menu boxShadow="xl" rounded="md">
           <Flex maxW="1050px" m="auto" justifyContent="space-between">
-            {/* <MenuList minWidth="50px"> */}
             <Flex>
               <MenuItem width="auto">
                 <Image
@@ -46,8 +32,6 @@ const Index = () => {
                   alt="profile-img"
                 />
               </MenuItem>
-              {/* <MenuItem width="auto">Sobre mi</MenuItem>
-              <MenuItem width="auto">Links</MenuItem> */}
             </Flex>
             <HStack spacing="50px">
               <MenuItem width="auto">
@@ -62,9 +46,6 @@ const Index = () => {
                   ></Image>
                 </Link>
               </MenuItem>
-              {/* <MenuItem width="auto" onClick={toggleColorMode}>
-                <Image src="https://icongr.am/fontawesome/moon-o.svg?size=30color=black"></Image>
-              </MenuItem> */}
             </HStack>
           </Flex>
         </Menu>
@@ -131,7 +112,7 @@ const Index = () => {
           </Heading>
 
           <VStack spacing={3} mt={5}>
-            {proyects.map((proyect) => (
+            {data.map((proyect) => (
               <Box
                 boxShadow="base"
                 p="6"
@@ -197,6 +178,15 @@ const Index = () => {
       </Container>
     </Box>
   );
-};
+}
+
+export async function getServerSideProps() {
+  const res = await fetch("http://portfolio-ignaherrero.vercel.app/api/hello");
+  const data = await res.json();
+
+  return {
+    props: { data }, 
+  };
+}
 
 export default Index;
