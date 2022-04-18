@@ -181,7 +181,9 @@ function Index({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://portfolio-ignaherrero.vercel.app/api/hello");
+  const res = await fetch(
+    "https://my-portfolio-nacho93.vercel.app/api/hello"
+  );
   const data = await res.json();
 
   return {
