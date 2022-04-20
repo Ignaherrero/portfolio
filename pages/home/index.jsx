@@ -141,7 +141,7 @@ function Index({ data, urlImg }) {
                   key={nanoid()}
                 >
                   <Heading fontSize="lg">{proyect.name}</Heading>
-                  <Text color="#8b97a9">Tecnologias: ...</Text>
+                  <Text color="#8b97a9">Tecnologias: {proyect.tec}</Text>
                   <HStack spacing="20px">
                     <Link href={proyect.liveUrl} isExternal>
                       Live
