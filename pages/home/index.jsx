@@ -143,9 +143,11 @@ function Index({ data, urlImg }) {
                   <Heading fontSize="lg">{proyect.name}</Heading>
                   <Text color="#8b97a9">Tecnologias: {proyect.tec}</Text>
                   <HStack spacing="20px">
-                    <Link href={proyect.liveUrl} isExternal>
-                      Live
-                    </Link>
+                    {proyect?.liveUrl && (
+                      <Link href={proyect.liveUrl} isExternal>
+                        Live
+                      </Link>
+                    )}
                     <Link href={proyect.codeUrl} isExternal>
                       Code
                     </Link>

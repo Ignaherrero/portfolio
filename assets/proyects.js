@@ -26,8 +26,14 @@ export const proyects = [
   {
     name: "App de viajes",
     codeUrl:
-    "https://github.com/Ignaherrero/autenticacion-firebase-firestone-redux-tests-bootstrap",
+      "https://github.com/Ignaherrero/autenticacion-firebase-firestone-redux-tests-bootstrap",
     liveUrl: "https://autenticacion-firebase-firestone-redux-tests.vercel.app",
     tec: "React + MongoDB + Firebase + Redux ",
+  },
+  {
+    name: "Adogtemos",
+    codeUrl: "https://github.com/GammaFec/Gamma",
+    liveUrl: null,
+    tec: "React + Firebase + TypeScript + Styled Components",
   },
 ];
