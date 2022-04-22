@@ -1,11 +1,5 @@
 import {
-  extendTheme,
-  ThemeProvider,
-  CSSReset,
-  ColorModeScript,
   ChakraProvider,
-  ColorModeProvider,
-  theme,
 } from "@chakra-ui/react";
 import "../normalize.css";
 import Script from "next/script";
@@ -30,7 +24,7 @@ function MyApp({ Component, pageProps }) {
                 `}
       </Script>
       <ChakraProvider>
-        <Component {...pageProps} />
+          <Component {...pageProps} />
       </ChakraProvider>
     </>
   );
