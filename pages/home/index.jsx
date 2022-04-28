@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Button,
   Container,
   Flex,
   HStack,
@@ -10,6 +11,7 @@ import {
   Menu,
   MenuItem,
   Text,
+  useColorMode,
   VStack,
 } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
@@ -20,7 +22,7 @@ import Head from "next/head";
 
 function Index({ data, urlImg }) {
   return (
-    <>
+    <body>
       <Head>
         <meta
           name="description"
@@ -34,9 +36,8 @@ function Index({ data, urlImg }) {
         <meta property="og:image" content={urlImg} />
         <title>Ignacio Herrero</title>
       </Head>
-
-      <Box width="100%" bg="#f7fafc">
-        <Box boxShadow="xl" rounded="md" bg="white" maxH="80px">
+      <Box width="100%">
+        <Box boxShadow="xl" rounded="md" maxH="80px">
           <Menu boxShadow="xl" rounded="md">
             <Flex maxW="1050px" m="auto" justifyContent="space-between">
               <Flex>
@@ -69,11 +70,9 @@ function Index({ data, urlImg }) {
 
         <Container
           maxW="container.lg"
-          bgGradient="linear(red.100 0%, orange.100 25%, yellow.100 50%)"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          bg="#f7fafc"
           marginTop={7}
         >
           <motion.div
@@ -103,10 +102,8 @@ function Index({ data, urlImg }) {
                 </Flex>
               </motion.div>
               <Box mt={{ base: 6 }}>
-                <Text color="#2d3748" fontSize="2xl">
-                  Hola!
-                </Text>
-                <Text fontSize={{ base: "xl", sm: "2xl" }} color="#323c4c">
+                <Text fontSize="2xl">Hola!</Text>
+                <Text fontSize={{ base: "xl", sm: "2xl" }}>
                   Mi nombre es{" "}
                   <Text fontWeight="bold" display="inline">
                     Ignacio Herrero
@@ -133,7 +130,6 @@ function Index({ data, urlImg }) {
                   boxShadow="base"
                   p="6"
                   rounded="md"
-                  bg="white"
                   maxW="800px"
                   width="100%"
                   borderRadius="lg"
@@ -141,12 +137,15 @@ function Index({ data, urlImg }) {
                   key={nanoid()}
                 >
                   <Heading fontSize="lg">{proyect.name}</Heading>
-                  <Text color="#8b97a9">Tecnologias: {proyect.tec}</Text>
+                  <Text>Tecnologias: {proyect.tec}</Text>
                   <HStack spacing="20px">
                     {proyect?.liveUrl && (
-                      <Link href={proyect.liveUrl} isExternal>
-                        Live
-                      </Link>
+                      <>
+                        <Link href={proyect.liveUrl} isExternal>
+                          Live
+                        </Link>
+                        <Button>asfasdf</Button>
+                      </>
                     )}
                     <Link href={proyect.codeUrl} isExternal>
                       Code
@@ -195,18 +194,33 @@ function Index({ data, urlImg }) {
           </footer>
         </Container>
       </Box>
-    </>
+    </body>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
+  // If this request throws an uncaught error, Next.js will
+  // not invalidate the currently shown page and
+  // retry getStaticProps on the next request.
   const res = await fetch("https://my-portfolio-nacho93.vercel.app/api/hello");
   const data = await res.json();
+
+  if (!res.ok) {
+    // If there is a server error, you might want to
+    // throw an error instead of returning so that the cache is not updated
+    // until the next successful request.
+    throw new Error(`Failed to fetch posts, received status ${res.status}`);
+  }
+
+  // If the request was successful, return the posts
+  // and revalidate every 10 seconds.
+
   return {
     props: {
       data,
       urlImg: "https://www.foo.software/content/images/2020/08/react-next.png",
     },
+    revalidate: 60,
   };
 }
 
