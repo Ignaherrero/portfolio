@@ -144,7 +144,6 @@ function Index({ data, urlImg }) {
                         <Link href={proyect.liveUrl} isExternal>
                           Live
                         </Link>
-                        <Button>asfasdf</Button>
                       </>
                     )}
                     <Link href={proyect.codeUrl} isExternal>
