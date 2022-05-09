@@ -26,11 +26,11 @@ function Index({ data, urlImg }) {
       <Head>
         <meta
           name="description"
-          content="mi portfolio, acerca de mi y mis proyectos"
+          content="Entra y te muestro mis proyectos y las cosas que he hecho =)"
         />
         <meta
           property="og:description"
-          content="mi portfolio, acerca de mi y mis proyectos"
+          content="Entra y te muestro mis proyectos y las cosas que he hecho =)"
         />
         <meta property="og:site_name" content="ignacio herrero portfolio" />
         <meta property="og:image" content={urlImg} />
