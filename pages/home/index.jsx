@@ -219,7 +219,7 @@ export async function getStaticProps() {
       data,
       urlImg: "https://www.foo.software/content/images/2020/08/react-next.png",
     },
-    revalidate: 259200,
+    revalidate: 864000,
   };
 }
 
